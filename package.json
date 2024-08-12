@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@rpii/wdio-html-reporter": "^7.7.1",
+    "@wdio/allure-reporter": "^8.39.0",
+    "@wdio/cli": "^8.40.2",
+    "@wdio/mocha-framework": "^8.40.2",
+    "allure-commandline": "^2.30.0",
+    "mocha": "^10.7.0"
+  },
+  "scripts": {
+    "clean:reports": "rm -rf ./allure-results && rm -rf ./allure-report",
+    "test": "npx wdio run wdio.conf.js --spec ./test/specs/testPositive.spec.js",
+    "allure:serve": "npm run clean:reports && npm run test -- --spec $SPEC && allure generate --clean && allure open",
+    
+    "allure:all": "npm run clean:reports && npm run test && allure generate --clean && allure open"
+  }
+}
