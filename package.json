@@ -8,10 +8,12 @@
     "mocha": "^10.7.0"
   },
   "scripts": {
-    "clean:reports": "rm -rf ./allure-results && rm -rf ./allure-report",
-    "test": "npx wdio run wdio.conf.js --spec ./test/specs/testPositive.spec.js",
+    "clean:reports": "rm -rf ./allure-results && rm -rf ./allure-report && rm -rf ./screenshots",
+    "test": "npx wdio run wdio.conf.js --spec ./test/specs/login.spec.js",
     "allure:serve": "npm run clean:reports && npm run test -- --spec $SPEC && allure generate --clean && allure open",
-    
     "allure:all": "npm run clean:reports && npm run test && allure generate --clean && allure open"
+  },
+  "dependencies": {
+    "chai": "^5.1.1"
   }
 }

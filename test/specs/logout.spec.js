@@ -6,7 +6,6 @@ describe('Logout Flow', () => {
 
   beforeEach(async () => {
     createScreenshotDir(screenshotDir);
-    // Setup additional steps if needed
   });
 
   it('should successfully log out', async () => {
@@ -14,7 +13,6 @@ describe('Logout Flow', () => {
   });
 
   afterEach(async function () {
-    // Menyimpan screenshot pada setiap langkah tes
     await saveScreenshot(`${screenshotDir}/afterEach.png`);
   });
 });

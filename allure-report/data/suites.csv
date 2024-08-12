@@ -1,5 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1","should successfully run login test","","Mon Aug 12 16:56:55 WIB 2024","passed","Mon Aug 12 16:56:55 WIB 2024","","Positive Tests","",""
-"","9595","should successfully log in","","Mon Aug 12 16:56:38 WIB 2024","passed","Mon Aug 12 16:56:47 WIB 2024","","Login Flow","",""
-"","1","should successfully run logout test","","Mon Aug 12 16:56:55 WIB 2024","passed","Mon Aug 12 16:56:55 WIB 2024","","Positive Tests","",""
-"","4032","should successfully log out","","Mon Aug 12 16:56:50 WIB 2024","passed","Mon Aug 12 16:56:54 WIB 2024","","Logout Flow","",""
+"","11768","should successfully log in","","Mon Aug 12 19:06:51 WIB 2024","passed","Mon Aug 12 19:07:02 WIB 2024","","Login Flow","",""
