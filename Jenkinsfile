@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', 'https://github.com/dhanytom1922/automation.git'
+                git branch: 'main', url: 'https://github.com/dhanytom1922/automation.git'
             }
         }
 
