@@ -4,6 +4,12 @@ pipeline {
     tools {
         nodejs 'node 22.5.1' // Gunakan nama yang sesuai dengan konfigurasi NodeJS
     }
+    environment {
+    ANDROID_HOME = "${HOME}/Library/Android/sdk"
+    ANDROID_SDK_ROOT = "${ANDROID_HOME}"
+    PATH = "${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${env.PATH}"
+}
+
 
     stages {
         stage('Checkout') {
