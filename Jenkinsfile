@@ -1,34 +1,45 @@
 pipeline {
     agent any
+
     tools {
-        nodejs 'NodeJS 22.5.1' // Pastikan nama ini sesuai dengan konfigurasi NodeJS di Jenkins
+        nodejs 'node 22.5.1' // Gunakan nama yang sesuai dengan konfigurasi NodeJS di Jenkins
     }
+
     stages {
         stage('Checkout') {
             steps {
-                // Checkout kode dari GitHub
                 git 'https://github.com/dhanytom1922/automation.git'
             }
         }
+
         stage('Install Dependencies') {
             steps {
-                // Install dependencies menggunakan npm
                 sh 'npm install'
             }
         }
+
         stage('Run Tests') {
             steps {
-                // Jalankan tes dengan Allure
-                sh 'npm run allure:serve'
+                sh 'npm test'
             }
         }
-    }
-    post {
-        always {
-            // Hasilkan laporan Allure
-            allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', results: [[path: 'allure-results']]
-            // Arsipkan hasil laporan
-            archiveArtifacts artifacts: '**/allure-report/**'
+
+        stage('Generate Allure Report') {
+            steps {
+                sh 'npm run allure:generate'
+            }
+        }
+
+        stage('Publish Allure Report') {
+            steps {
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+                ])
+            }
         }
     }
 }
