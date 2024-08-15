@@ -4,10 +4,10 @@ stages:
 pages:
   stage: deploy
   script:
-    - mkdir .public
-    - cp -r halaman/* .public/
+    - mkdir public
+    - cp -r halaman/* public/
   artifacts:
     paths:
-      - .public
+      - public
   only:
     - main
