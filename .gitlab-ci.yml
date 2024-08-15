@@ -1,0 +1,10 @@
+image: alpine:latest
+
+pages:
+  script:
+  - cp -r public/* .public
+  artifacts:
+    paths:
+    - .public
+  only:
+  - main
