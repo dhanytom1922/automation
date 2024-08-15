@@ -3,9 +3,8 @@ image: node:14
 pages:
   stage: deploy
   script:
-    - mkdir public
-    - cp -r * public/ # Menyalin seluruh konten ke folder public
-    - mv public/public/* public/ # Jika folder public di dalam public, pindahkan konten ke root public
+    - mkdir -p public # Membuat direktori public jika belum ada
+    - cp -r halaman/* public/ # Menyalin semua konten dari folder halaman ke public
   artifacts:
     paths:
       - public
