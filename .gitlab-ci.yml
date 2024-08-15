@@ -1,10 +1,13 @@
-image: alpine:latest
+stages:
+  - deploy
 
 pages:
+  stage: deploy
   script:
-  - cp -r public/* .public
+    - mkdir .public
+    - cp -r halaman/* .public/
   artifacts:
     paths:
-    - .public
+      - .public
   only:
-  - main
+    - main
