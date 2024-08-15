@@ -4,21 +4,21 @@ stages:
   - build
   - deploy
 
-variables:
-  VERSION: "v$(date +%Y%m%d%H%M%S)"  # Buat versi berdasarkan timestamp
-
 build:
   stage: build
   script:
+    - VERSION="v$(date +%Y%m%d%H%M%S)"  # Buat versi berdasarkan timestamp
+    - echo "Generated version: $VERSION"
     - mkdir -p "reportaplikasi$VERSION"  # Buat direktori dengan versi yang unik
     - cp -r reportaplikasi/* "reportaplikasi$VERSION/"  # Salin report dari folder local
 
 deploy:
   stage: deploy
   script:
+    - VERSION="v$(date +%Y%m%d%H%M%S)"  # Pastikan versi konsisten di stage deploy
     - git config --global user.email "achmaddhany1922@gmail.com"
     - git config --global user.name "achmaddhany1922"
-    - git add "reportaplikasi$VERSION"
+    - git add "reportaplikasi$VERSION"  # Tambahkan folder versi baru ke staging
     - git commit -m "Add report for version $VERSION"
     - git push origin $CI_COMMIT_REF_NAME
   only:
