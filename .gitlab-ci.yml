@@ -1,11 +1,11 @@
-stages:
-  - deploy
+image: node:14
 
 pages:
   stage: deploy
   script:
     - mkdir public
-    - cp -r halaman/* public/
+    - cp -r * public/ # Menyalin seluruh konten ke folder public
+    - mv public/public/* public/ # Jika folder public di dalam public, pindahkan konten ke root public
   artifacts:
     paths:
       - public
