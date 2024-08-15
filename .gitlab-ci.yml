@@ -1,0 +1,12 @@
+image: node:lts
+
+stages:
+  - pages
+
+pages:
+  stage: pages
+  artifacts:
+    paths:
+      - public
+  only:
+    - main  # Ganti dengan nama branch yang sesuai jika berbeda
