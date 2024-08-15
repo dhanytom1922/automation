@@ -4,6 +4,7 @@ stages:
 pages:
   stage: deploy
   script:
+    - mkdir public
     - cp -r halaman/* public/
   artifacts:
     paths:
