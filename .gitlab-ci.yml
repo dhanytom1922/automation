@@ -1,10 +1,8 @@
-image: node:lts
+image: alpine:latest
 
 pages:
   script:
-    - npm install # jika Anda menggunakan npm untuk build aplikasi
-    - npm run build # jalankan build jika perlu, atau sesuaikan dengan build command Anda
-    - cp -r public/* .public
+  - cp -r public/* .public
   artifacts:
     paths:
     - .public
